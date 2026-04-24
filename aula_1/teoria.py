@@ -11,4 +11,14 @@ print ("esse é o curso de lógica de programação.")
 
 # A sintaxe do comando é input ("mensagem")
 nome = input("digite o seu nome: ")
-print("Olá, ",nome)
+idade = int(input("digite a sua idade: "))
+
+print ("Olá, ",nome, "você tem ",idade, "anos")
+# O comando type () analisa o tipo da informação que está entre os parênteses
+print ("O tipo da variável nome é" ,type(nome))
+print ("O tipo da variável idade é" ,type(idade))
+
+if idade >= 18:
+    print ("você é maior de idade.")
+else:
+    print ("você é menor de idade")
