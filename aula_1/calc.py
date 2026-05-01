@@ -44,7 +44,6 @@ match opcao:
         media3 = float(input("Digite a terceiro numero: "))
 
         media = (media1+media2+media3)/3
-        
         print(f"A média é {media}")
 
         print("Média de 3 valores")
