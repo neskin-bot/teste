@@ -1,4 +1,5 @@
 import random
+import time
 #criar um algorítimo que
 # apresenta o nome do jogo
 # sauda o jogador
@@ -35,11 +36,14 @@ import random
 
 
 print("|----------------------------------------|")
-print("|          The oriental front            |")
+print("|        ✠ The oriental front ☭          |")
 print("|----------------------------------------|")
+time.sleep(2)
 print()
 print("Bem vindo ao The oriental front")
-print("Neste jogo, escolha um dos lados da guerra e lute contra o seu adversário")
+time.sleep(2)
+print("Neste jogo, assuma o lado alemão ou soviético no front oriental")
+time.sleep(3)
 print()
 # o usuaria irá escolher entre o lado alemão ou o lado soviético
 print("Escolha o seu lado")
@@ -56,15 +60,58 @@ lado = int(input("Digite a sua escolha: "))
 match lado:
     case 1:
         print("Você escolheu o lado alemão")
-        print("Seu pelotão é a 6ª divisão de infantaria")
-        print("Seu armamento é o Kar98k")
+        print()
+        print("Seu pelotão é a 6ª divisão de infantaria e possui 100 de vida")
+        print("Seu armamento é o rifle Kar98k")
         print("Seu suporte é o avião de ataque Stuka")
+        print()
     case 2:
         print("Você escolheu o lado soviético")
-        print("Seu pelotão é a 13ª divisão de fuzileiros da guarda")
-        print("Seu armamento é o Mosin Nagant")
+        print()
+        print("Seu pelotão é a 13ª divisão de fuzileiros da guarda e possui 120 de vida")
+        print("Seu armamento é o rifle Mosin Nagant")
         print("Seu suporte é o avião de ataque IL-2")
         print("O lado soviético tem um buff de 25% de chance de segurar metade do dano inimigo")
+        print()
+time.sleep(10)
+
+print("A Batalha vai começar!")
+time.sleep(2)
+print()
+print("O pacto Molotov-Ribbentrop foi quebrado!")
+time.sleep(3)
+print("A operação Barbarossa começou")
+time.sleep(2)
+print()
+print("A tropa alemã avança para a linha de frente para o primeiro ataque")
+if lado == 2:
+    print("O pelotão alemão se posiciona na linha de frente e. . .")
+
+time.sleep(2)
+print()
+if lado == 1:
+    print("1- Atacar com rifle Kar98k")
+    if turno >= 5:
+        print("2- Chamar o suporte aéreo Stuka")
+        escolha_ataque = int(input("Digite a sua escolha: "))
+else: #se o jogador for soviético, o alemão é o BOT
+    if turno >= 5:
+        escolha_ataque = random.randint(1, 2)
+    else:
+        escolha_ataque = 1
+# calculo do dano baseado na escolha
+if escolha_ataque == 1:
+    dano = random.randint(15, 20)
+    if dano > 18 and escolha_ataque == 1:
+        print("Tiro crítico")
+        print("Os tiros da tropa alemã causou dano severo de", dano, "de dano")
+    if random.randint(1, 100) <= 25 and escolha_ataque == 1 and lado == 2:
+        print("O lado soviético se protegeu! O dano foi reduzido pela metade")
+        dano = dano // 2
+    hp_sovietico -= dano
+    print(f"Vida atual do pelotão soviético: {hp_sovietico}")
+
+
 
 
 
